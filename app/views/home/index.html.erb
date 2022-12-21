@@ -1,10 +1,29 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Home Index Action </h1>
 <%= link_to "Hello", "#" %>
 
 </br>
-<%= link_to "Reflex", "#", data: { reflex: "click->Hello#count", post_id: @rahul.to_i } %>
+<%= link_to "Reflex", "#", data: { reflex: "click->Hello#count", id: @rahul.to_i } %>
 
 <p id="rahul">
 
 </p>
+
+
+<div data-post-id="<%= 1.to_i %>">
+  <div data-category-id="<%= 2.to_i %>">
+    <button data-reflex="click->Hello#create" data-reflex-dataset="combined">Create</button>
+  </div>
+</div>
+
+
+<div data-id="1">
+  <button data-id="2" data-reflex="click->Hello#whatever">DataId</button>
+</div>
+
+<p id="para"></p>
+<p>Here We are going to implement Stimulus JS calling Reflex</p>
+
+<button data-controller="hello" data-action="click->hello#toggle">Click ME Rahul Stimulus JS</button>
+
+<br>
+<button data-reflex="click">Refresh</button>
