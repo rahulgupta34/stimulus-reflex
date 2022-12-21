@@ -39,4 +39,16 @@ class HelloReflex < ApplicationReflex
     morph "#rahul", "this is rahul gupta"
   end
 
+  def create 
+    # binding.pry
+    puts element.dataset["post-id"]
+    puts element.dataset["category-id"]
+  end
+
+  def whatever
+    # puts element.dataset["id"]
+    # binding.pry
+    morph "#para", "<p><b>This is Rahul Gupta task updated.</b></p>"
+  end 
+
 end

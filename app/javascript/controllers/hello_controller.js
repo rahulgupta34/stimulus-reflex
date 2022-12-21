@@ -22,6 +22,11 @@ export default class extends ApplicationController {
     console.log("Hello, this is rahul gupta");
   }
 
+  toggle(event){
+    console.log(event.target);
+    this.stimulate("Hello#whatever")
+  }
+
   /* Reflex specific lifecycle methods.
    *
    * For every method defined in your Reflex class, a matching set of lifecycle methods become available
