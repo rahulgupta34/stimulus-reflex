@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HelloReflex < ApplicationReflex
+class ReadCreateReflex < ApplicationReflex
   # Add Reflex methods in this file.
   #
   # All Reflex instances include CableReady::Broadcaster and expose the following properties:
@@ -33,22 +33,15 @@ class HelloReflex < ApplicationReflex
   #
   # Learn more at: https://docs.stimulusreflex.com/rtfm/reflex-classes
 
-  def count
-    # binding.pry
-    puts "it's reflex rb file"
-    morph "#rahul", "this is rahul gupta"
+  def create(values)
+    @read_create = ReadCreate.create(name: values[:name], age: values[:age].to_i)
+    morph "#createuser", "<td>#{@read_create.id}</td><td>#{@read_create.name}</td><td>#{@read_create.age}</td>"
   end
-
-  def create 
+  
+  def checkBox
     # binding.pry
-    puts element.dataset["post-id"]
-    puts element.dataset["category-id"]
+    @read_create = ReadCreate.find(element.dataset[:id].to_i)
+    morph "#createdat_#{@read_create.id}", @read_create.created_at
   end
-
-  def whatever
-    # puts element.dataset["id"]
-    # binding.pry
-    morph "#para", "<p><b>This is Rahul Gupta task updated.</b></p>"
-  end 
 
 end

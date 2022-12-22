@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+5.times do |i|
+  ReadCreate.create(name: "Rahul_#{i+1}", age: "2#{i}".to_i)
+end
