@@ -1,0 +1,45 @@
+<div data-controller="read-create">
+<p data-read-create-target="ele"></p>
+<h1>All Users</h1>
+<%= link_to "Add New User", "/new" %>
+  <table>
+    <tr>
+    <th>#</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Created At</th>
+    </tr>
+    <tr id="createuser">
+      <% @read_create.each do |read_create|%>
+      <td><input type="checkbox" data-reflex="click->ReadCreate#checkBox" data-id="<%= read_create.id %>" name="nm"></td>
+        <td><%= read_create.id %></td>
+        <td><%= read_create.name %></td>
+        <td><%= read_create.age %></td>
+        <td id="createdat_<%= read_create.id %>"></td>
+      </tr>
+    <% end %>
+    </tr>
+  </table>
+
+
+
+
+<h1>Enter Users Details</h1>
+<%= form_with url: "/create", method: :post, data: { action: "turbo:submit-end->read-create#submitEnd" } do |form| %>
+ <div>
+ <%= form.label :name %>
+ <%= form.text_field :name, data: { read_create_target: "name" } %>
+ </div>
+
+ <div>
+ <%= form.label :age %>
+ <%= form.number_field :age, data: { read_create_target: "age" } %>
+ </div>
+
+ <div>
+ <%= form.submit %>
+ </div>
+
+<% end %>
+</div>

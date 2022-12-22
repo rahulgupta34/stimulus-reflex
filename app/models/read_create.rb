@@ -1,0 +1,2 @@
+class ReadCreate < ApplicationRecord
+end
