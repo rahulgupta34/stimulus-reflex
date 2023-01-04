@@ -1,18 +1,18 @@
 <div data-controller="read-create">
 <p data-read-create-target="ele"></p>
 <h1>All Users</h1>
-<%= link_to "Add New User", "/new" %>
+
   <table>
     <tr>
-    <th>#</th>
+      <th>#</th>
       <th>ID</th>
       <th>Name</th>
       <th>Age</th>
       <th>Created At</th>
     </tr>
-    <tr id="createuser">
-      <% @read_create.each do |read_create|%>
-      <td><input type="checkbox" data-reflex="click->ReadCreate#checkBox" data-id="<%= read_create.id %>" name="nm"></td>
+      <% @read_create.each do |read_create| %>
+      <tr id="createuser" draggable="true" data-action="drag->read-create#drag dragstart->read-create#dragStart drop->read-create#dropEnd">
+        <td><input type="checkbox" data-reflex="click->ReadCreate#checkBox" data-id="<%= read_create.id %>" name="<%= read_create.name %>"></td>
         <td><%= read_create.id %></td>
         <td><%= read_create.name %></td>
         <td><%= read_create.age %></td>

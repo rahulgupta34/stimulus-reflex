@@ -35,7 +35,17 @@ export default class extends ApplicationController {
     console.log(hash)
   }
 
+  drag(event){
+    console.log("the th being drag!");
+  }
 
+  dragStart(event){
+    console.log("drag stared!");
+  }
+
+  dropEnd(event){
+    console.log("droped!");
+  }
   /* Reflex specific lifecycle methods.
    *
    * For every method defined in your Reflex class, a matching set of lifecycle methods become available
