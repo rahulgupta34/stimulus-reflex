@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  
-  root "home#index"
+  get "/selector", to: "example#show"
+  root "example#index"
 end

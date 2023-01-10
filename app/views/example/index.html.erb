@@ -1,0 +1,15 @@
+<h1>Scoping the morph with root keword.</h1>
+
+<div data-reflex-root="[forward],[backward]">
+  <div forward><%= @words %></div>
+  <input type="text" value="" data-reflex="keyup->Example#words" />
+  <div backward><%= @words&.reverse %></div>
+</div>
+
+<hr>
+
+<button data-reflex="click->Example#button">Click</button>
+
+<p id="one"></p>
+
+<p id="two"></p>
