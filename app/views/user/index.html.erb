@@ -1,0 +1,15 @@
+<h1>Users Data</h1>
+<div id="users">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Completed</th>
+    </tr>
+    <% @users.each do |user| %>
+      <%= render partial: "user", locals: { user: user} %>
+    <% end %>
+  </table>
+</div>
