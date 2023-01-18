@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4"> User Crud </h1>
+<div class="form_section m-5" data-controller="student">
+  <%= render 'form' %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <%= render partial: 'user', locals: { student: student } %>
+    <% end %>
+  </tbody>
+</table>

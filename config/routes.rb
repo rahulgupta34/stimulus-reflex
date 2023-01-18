@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  
-  root "home#index"
+  get "/user", to: "user#index"
+  root "life_cycle#index"
 end
