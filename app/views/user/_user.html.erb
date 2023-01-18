@@ -2,7 +2,7 @@
   <td scope="row"><%= student.id %></td>
   <td><%= student.name %></td>
   <td><%= student.email %></td>
-  <td><%= link_to "Edit", edit_student_path(student.id) %></td>
-  <td><%= link_to "Delete", student_path(student.id) %></td>
+  <td><%= link_to "Edit", "#", data: { reflex: "click->Student#edit", reflex_id: student.id } %></td>
+  <td><%= link_to "Delete", "#", data: { reflex: "click->Student#destroy", reflex_id: student.id } %></td>
 </tr>
 

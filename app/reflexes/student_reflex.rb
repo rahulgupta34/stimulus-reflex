@@ -33,8 +33,25 @@ class StudentReflex < ApplicationReflex
   #
   # Learn more at: https://docs.stimulusreflex.com/rtfm/reflex-classes
 
-  def create
+  def create(params)
+    # binding.pry
+    @student = Student.new(name: params[:name], email: params[:email])
+    @student.save
+  end
 
+  def destroy
+    @student = Student.find(element.dataset["reflex_id"].to_i)
+    @student.destroy
+  end
+
+  def edit
+    @student = Student.find(element.dataset["reflex_id"].to_i)
+    morph "#reflex_form_id", render(partial: "reflex_form", locals: { student: @student })
+  end
+
+  def update(params)
+    @student = Student.find(params["reflex_id"].to_i)
+    @student.update(name: params[:name],email: params[:email])
   end
   
 end

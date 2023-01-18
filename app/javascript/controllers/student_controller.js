@@ -16,7 +16,7 @@ export default class extends ApplicationController {
    * call super if you intend to do anything else when this controller connects.
   */
 
-  static targets = [ "name","email" ]
+  static targets = [ "name","email", "edit_name", "edit_email" ]
 
   connect () {
     super.connect()
@@ -26,8 +26,26 @@ export default class extends ApplicationController {
   create(event){
     let textValues = { name: this.nameTarget.value, email: this.emailTarget.value }
     console.log(textValues);
-    
+    this.stimulate("Student#create",textValues)
   }
+
+  update(event){
+    let updateTextValues = {reflex_id: event.target.dataset.reflex_id, name: this.edit_nameTarget.value, email: this.edit_emailTarget.value }
+    console.log(event.target.dataset.reflex_id);
+    this.stimulate("Student#update",updateTextValues)
+  }
+
+  createSuccess(){
+    this.nameTarget.value = ""
+    this.emailTarget.value = ""
+  }
+
+  updateSuccess(){
+    this.edit_nameTarget.value = ""
+    this.edit_emailTarget.value = ""
+  }
+
+  
   /* Reflex specific lifecycle methods.
    *
    * For every method defined in your Reflex class, a matching set of lifecycle methods become available
