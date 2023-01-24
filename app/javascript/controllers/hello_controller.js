@@ -16,12 +16,27 @@ export default class extends ApplicationController {
    * call super if you intend to do anything else when this controller connects.
   */
 
+  static targets = ["focus"]
+
   connect () {
     super.connect()
     // add your code here, if applicable
     console.log("Hello, this is rahul gupta");
   }
 
+  beforeReflex(element,reflex,noop){
+    // debugger
+    console.log(element);
+  }
+
+  submit(e){
+    e.preventDefault()
+    this.stimulate("Hello#count").then(() => {
+      this.element.reset()
+      // console.log();
+      this.focusTarget.focus()
+    })
+  }
   /* Reflex specific lifecycle methods.
    *
    * For every method defined in your Reflex class, a matching set of lifecycle methods become available
