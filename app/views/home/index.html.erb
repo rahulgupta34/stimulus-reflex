@@ -1,10 +1,17 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <%= link_to "Hello", "#" %>
-
 </br>
-<%= link_to "Reflex", "#", data: { reflex: "click->Hello#count", post_id: @rahul.to_i } %>
-
+<div data-controller="hello">
+  <%= link_to "Reflex", "#", data: { reflex: "click->Hello#count", post_id: @rahul.to_i } %>
+</div>
 <p id="rahul">
-
 </p>
+
+
+<br><br><br><br>
+<%= form_with(data: {controller: "hello"}) do |form| %>
+  <%= form.text_field :name, data: {hello_target: "focus"} %>
+  <%= form.button data: {action: "click->hello#submit"} %>
+<% end %>
+
